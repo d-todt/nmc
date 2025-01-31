@@ -47,6 +47,7 @@ def run_experiment():
 def main():
     run_experiment()
 
+main()
 
 
 if __name__ == '__main__':

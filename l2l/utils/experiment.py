@@ -203,9 +203,9 @@ class Experiment(object):
         :param optimizer_parameters: Namedtuple, optional, parameters of the optimizer
         """
         ind = optimizee.create_individual()
-        for key in ind:
-            if(isinstance(ind[key], int)):
-                raise ValueError('Parameter of type integer is not allowed')
+        # for key in ind:
+        #     if(isinstance(ind[key], int)):
+        #         raise ValueError('Parameter of type integer is not allowed')
         self.optimizee = optimizee
         self.optimizer = optimizer
         self.optimizer = optimizer
