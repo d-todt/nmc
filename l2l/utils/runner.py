@@ -207,8 +207,12 @@ class Runner():
             exitcode = process.poll()
             if exitcode is not None: # None would imply that it's running
                 logger.info(f'Process exited with code {exitcode}')
-                logger.info("STDOUT: " + str(process.stdout.read()))
-                logger.info("STDERR: " + str(process.stderr.read()))
+                stdout = process.stdout
+                if stdout is not None:
+                    logger.info("STDOUT: " + str(stdout.read()))
+                stderr = process.stderr
+                if stderr is not None:
+                    logger.info("STDERR: " + str(stderr.read()))
                 raise NotImplementedError("Worker crashed")
 
     def restart_worker(self, w_id):
