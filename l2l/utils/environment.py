@@ -42,12 +42,20 @@ class Environment:
         :return: the results of running a whole generation. Dictionary indexed by generation id.
         """
         result = {}
+        logger.info("Environment start iteration")
+        print("Environment start iteration")
+        with open('run.txt', 'w') as outfile:
+            outfile.write("test")
         for it in range(self.trajectory.individual.generation, self.trajectory.par['n_iteration']+self.trajectory.individual.generation):
+            logger.info(f"Environment run generation {it+1}/{self.trajectory.par['n_iteration']}")
+            print(f"Environment run generation {it+1}/{self.trajectory.par['n_iteration']}")
             if self.multiprocessing:
                 raise NotImplementedError('No JUBE!')
 
             else:
                 # Sequential calls to the runfunc in the optimizee
+                logger.info('runner sequential')
+                print('runner sequential')
                 result[it] = []
                 # Call runfunc on each individual from the trajectory
                 try:
@@ -55,6 +63,8 @@ class Environment:
                         self.trajectory.individual = ind
                         result[it].append((ind.ind_idx, runfunc(self.trajectory)))
                         self.run_id = self.run_id + 1
+                        logger.info(f'run id {ind}')
+                        print('run id {ind}')
                 except:
                     if self.logging:
                         logger.exception("Error during serial execution of individuals")
@@ -63,7 +73,7 @@ class Environment:
             self.trajectory.results.f_add_result_to_group("all_results", it, result[it])
             self.trajectory.current_results = result[it]
             # Update trajectory file
-            jube.dump_traj(self.trajectory)
+            #jube.dump_traj(self.trajectory) # TODO
             # Perform the postprocessing step in order to generate the new parameter set
             self.postprocessing(self.trajectory, result[it])
         return result
