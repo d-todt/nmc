@@ -7,15 +7,15 @@ from l2l.optimizers.evolution import GeneticAlgorithmParameters, GeneticAlgorith
 
 def run_experiment():
     experiment = Experiment(
-        root_dir_path='../results')
-    
+        root_dir_path='results')
+
     runner_params = {
         "srun": "",
-        "exec": "python3.9"
-    } 
+        "exec": "python"
+    }
     traj, _ = experiment.prepare_experiment(
         runner_params=runner_params, name=f"jube_removal_aw_ga", overwrite=True)
-        
+
 
     # Active Wait Optimizee
     optimizee_parameters = AWOptimizeeParameters(difficulty=10000.0)
@@ -23,17 +23,17 @@ def run_experiment():
 
 
     # Genetic Algorithm Optimizer
-    optimizer_parameters = GeneticAlgorithmParameters(seed=1580211, 
-                                                      pop_size=16,
+    optimizer_parameters = GeneticAlgorithmParameters(seed=1580211,
+                                                      pop_size=4,
                                                       cx_prob=0.7,
                                                       mut_prob=0.7,
-                                                      n_iteration=10,
+                                                      n_iteration=3,
                                                       ind_prob=0.45,
                                                       tourn_size=4,
                                                       mate_par=0.5,
                                                       mut_par=1
                                                       )
-    optimizer = GeneticAlgorithmOptimizer(traj, 
+    optimizer = GeneticAlgorithmOptimizer(traj,
                                           optimizee_create_individual=optimizee.create_individual,
                                           optimizee_fitness_weights=(1,),
                                           parameters=optimizer_parameters)
