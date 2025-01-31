@@ -40,7 +40,7 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
     'sphinx.ext.intersphinx',
-#    'sphinxjp.themes.basicstrap'
+    'sphinxjp.themes.basicstrap'
 ]
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
@@ -84,7 +84,7 @@ release = FULL_VERSION
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = 'en'
+language = None
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -136,16 +136,15 @@ todo_include_todos = True
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'basicstrap'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-#html_theme_options = {
+# html_theme_options = {
 #     'page_width': '1024px'
-#}
-
+# }
 
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []
@@ -153,13 +152,13 @@ html_theme = 'sphinx_rtd_theme'
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
 #
-html_title = 'L2L v0.1'
+# html_title = 'L2L v0.1'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
 # html_short_title = None
 
-#html_baseurl = "https://igitugraz.github.io/L2L/"
+html_baseurl = "https://igitugraz.github.io/L2L/"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -175,8 +174,7 @@ html_title = 'L2L v0.1'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
-html_css_files = ['custom.css']
+# html_static_path = ['_static']
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied

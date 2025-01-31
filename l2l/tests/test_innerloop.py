@@ -8,7 +8,7 @@ class InnerLoopTestCase(unittest.TestCase):
         return
 
 def suite():
-    suite = unittest.TestLoader().loadTestsFromTestCase(InnerLoopTestCase)
+    suite = unittest.makeSuite(InnerLoopTestCase, 'test')
     return suite
 
 

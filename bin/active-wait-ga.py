@@ -9,16 +9,13 @@ def run_experiment():
     experiment = Experiment(
         root_dir_path='results')
 
-    runner_params = {
-        "srun": "",
-        "exec": "python"
-    }
+    jube_params = { "exec": "python"}
     traj, _ = experiment.prepare_experiment(
-        runner_params=runner_params, name=f"jube_removal_aw_ga", overwrite=True)
+        jube_parameter=jube_params, multiprocessing=False, name=f"activeWait_GeneticAlgorithm")
 
 
     # Active Wait Optimizee
-    optimizee_parameters = AWOptimizeeParameters(difficulty=10000.0)
+    optimizee_parameters = AWOptimizeeParameters(difficulty=10000)
     optimizee = AWOptimizee(traj, optimizee_parameters)
 
 
@@ -50,6 +47,10 @@ def run_experiment():
 def main():
     run_experiment()
 
+
+
+if __name__ == '__main__':
+    main()
 
 
 if __name__ == '__main__':

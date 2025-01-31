@@ -58,7 +58,7 @@ class GSOptimizerTestCase(OptimizerTestCase):
 
 
 def suite():
-    suite = unittest.TestLoader().loadTestsFromTestCase(GSOptimizerTestCase)
+    suite = unittest.makeSuite(GSOptimizerTestCase, 'test')
     return suite
 
 

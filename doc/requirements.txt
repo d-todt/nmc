@@ -1,5 +1,0 @@
-sphinx
-numpy
-scikit-learn
-sphinx-rtd-theme
--e .
