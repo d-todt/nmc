@@ -43,14 +43,13 @@ class Pynn_Net():
         sim.Projection(self.pop1_in, self.pop1_ex, sim.FixedNumberPreConnector(self.CI, with_replacement = True, allow_self_connections = False), synapse_type=sim.StaticSynapse(weight=self.weight_inhibitory, delay=self.delay))
 
     def run_simulation(self):
-        sim.reset()
         sim.setup(1.0)
         self.build_network()
         sim.run(200)
         #spikes1=self.sample_ex.get_data(["spikes"]).segments[0].spiketrains
         #spikes2=self.sample_in.get_data(["spikes"]).segments[0].spiketrains
         average_rate = self.sample_ex.mean_spike_count()
-        sim.end
+        sim.reset()
 
         return average_rate
 
