@@ -1,8 +1,7 @@
 import pyNN.spiNNaker as sim
 
 class Pynn_Net():
-    sim.setup(1.0)
-   
+
     def __init__(self, scale, CE, CI, weight_excitatory, weight_inhibitory, delay, nrec, extra_kernel_params=None):
         self.scale = scale
         self.NE = int(9000 * scale)
@@ -16,7 +15,7 @@ class Pynn_Net():
         self.delay = delay
 
         self.nrec = min(nrec, self.NE)
-    
+
     def build_network(self):
     #input and populations
     #!!change input rate0
@@ -31,7 +30,7 @@ class Pynn_Net():
         self.sample_ex.record(["spikes"])
         #self.sample_in = self.pop1_in.sample(self.nrec)
         #self.sample_in.record(["spikes"])
-        
+
         self.connect_pops()
 
     def connect_pops(self):
@@ -44,29 +43,31 @@ class Pynn_Net():
         sim.Projection(self.pop1_in, self.pop1_ex, sim.FixedNumberPreConnector(self.CI, with_replacement = True, allow_self_connections = False), synapse_type=sim.StaticSynapse(weight=self.weight_inhibitory, delay=self.delay))
 
     def run_simulation(self):
+        sim.reset()
+        sim.setup(1.0)
         self.build_network()
         sim.run(200)
         #spikes1=self.sample_ex.get_data(["spikes"]).segments[0].spiketrains
         #spikes2=self.sample_in.get_data(["spikes"]).segments[0].spiketrains
         average_rate = self.sample_ex.mean_spike_count()
         sim.end
-        
+
         return average_rate
 
-if __name__ == "__main__":    
+if __name__ == "__main__":
 #extract data
 
-    net = Pynn_Net(scale=0.01, 
-                                   CE=50, 
-                                   CI=10, 
-                                   weight_excitatory=15, 
-                                   weight_inhibitory=-100, 
+    net = Pynn_Net(scale=0.01,
+                                   CE=50,
+                                   CI=10,
+                                   weight_excitatory=15,
+                                   weight_inhibitory=-100,
                                    delay=5,
                                    nrec=5
                                    )
 
     spikes1, spikes2 = net.run_simulation()
-    
+
     """spikes1=pop1.get_data(["spikes"]).segments[0].spiketrains
     v1 = pop1.get_data(["spikes","v"]).segments[0].filter(name='v')[0]
 
