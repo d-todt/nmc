@@ -1,0 +1,30 @@
+2024-07-29 14:20:37,141 utils.trajectory todt-thinkpad 18555 INFO    : Added new parameter group: runner_params
+2024-07-29 14:20:37,141 utils.trajectory todt-thinkpad 18555 INFO    : Added new parameter group: individual
+2024-07-29 14:20:37,141 optimizers.sbi todt-thinkpad 18555 INFO    : Creating new models
+2024-07-29 14:20:37,142 optimizers.sbi todt-thinkpad 18555 INFO    : Initializing individuals
+2024-07-29 14:20:37,144 utils.trajectory todt-thinkpad 18555 INFO    : Expanded trajectory for generation: 0
+2024-07-29 14:20:37,144 utils.experiment todt-thinkpad 18555 INFO    : Optimizee parameters: SBIOptimizeeParameters()
+2024-07-29 14:20:37,144 utils.experiment todt-thinkpad 18555 INFO    : Optimizer parameters: SBIParameters(pop_size=4, n_iteration=3, seed=0, inference_method=<class 'sbi.inference.snpe.snpe_c.SNPE_C'>, save_path='/home/todt/Dokumente/L2L/results/data', x_obs=[10.0], restrict_prior=3, tensorboard=True)
+2024-07-29 14:20:37,145 utils.runner todt-thinkpad 18555 INFO    : Serialized optimizee writen to path: /home/todt/Dokumente/L2L/results/L2L-SBI/simulation/optimizee.bin
+2024-07-29 14:20:37,145 utils.environment todt-thinkpad 18555 INFO    : Environment run starting Runner for n iterations: 1/3
+2024-07-29 14:20:37,145 utils.runner todt-thinkpad 18555 INFO    : Running generation: 0
+2024-07-29 14:20:42,189 utils.runner todt-thinkpad 18555 INFO    : Finished generation: 0
+2024-07-29 14:20:42,194 optimizers.sbi todt-thinkpad 18555 INFO    : Gathering simulation results
+2024-07-29 14:20:42,207 optimizers.sbi todt-thinkpad 18555 INFO    : Saving data
+2024-07-29 14:20:42,209 optimizers.sbi todt-thinkpad 18555 INFO    : No need to fit the restriction estimator (no invalid simulation data)
+2024-07-29 14:20:42,213 optimizers.sbi todt-thinkpad 18555 INFO    : Sampling the new population
+2024-07-29 14:20:42,213 utils.trajectory todt-thinkpad 18555 INFO    : Expanded trajectory for generation: 1
+2024-07-29 14:20:42,213 utils.environment todt-thinkpad 18555 INFO    : Environment run starting Runner for n iterations: 2/3
+2024-07-29 14:20:42,218 utils.runner todt-thinkpad 18555 INFO    : Running generation: 1
+2024-07-29 14:20:47,268 utils.runner todt-thinkpad 18555 INFO    : Finished generation: 1
+2024-07-29 14:20:47,275 optimizers.sbi todt-thinkpad 18555 INFO    : Gathering simulation results
+2024-07-29 14:20:47,277 optimizers.sbi todt-thinkpad 18555 INFO    : Saving data
+2024-07-29 14:20:47,278 optimizers.sbi todt-thinkpad 18555 INFO    : No need to fit the restriction estimator (no invalid simulation data)
+2024-07-29 14:20:47,278 optimizers.sbi todt-thinkpad 18555 INFO    : Sampling the new population
+2024-07-29 14:20:47,279 utils.trajectory todt-thinkpad 18555 INFO    : Expanded trajectory for generation: 2
+2024-07-29 14:20:47,279 utils.environment todt-thinkpad 18555 INFO    : Environment run starting Runner for n iterations: 3/3
+2024-07-29 14:20:47,284 utils.runner todt-thinkpad 18555 INFO    : Running generation: 2
+2024-07-29 14:20:52,323 utils.runner todt-thinkpad 18555 INFO    : Finished generation: 2
+2024-07-29 14:20:52,325 optimizers.sbi todt-thinkpad 18555 INFO    : Gathering simulation results
+2024-07-29 14:20:52,326 optimizers.sbi todt-thinkpad 18555 INFO    : Saving data
+2024-07-29 14:20:52,327 optimizers.sbi todt-thinkpad 18555 INFO    : No need to fit the restriction estimator (no invalid simulation data)
