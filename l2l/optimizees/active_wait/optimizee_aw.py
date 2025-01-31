@@ -21,7 +21,7 @@ class AWOptimizee(Optimizee):
         # create individual
         individual = {'difficulty':self.difficulty}
         return individual
-    
+
     def is_prime(self, n):
         if n <= 1:
             return False
@@ -39,21 +39,24 @@ class AWOptimizee(Optimizee):
         """
         self.ind_idx = traj.individual.ind_idx
         self.generation = traj.individual.generation
-        
+
         # Active wait by calculating all primes up to 'difficulty'
         primes = []
 
         for number in range(1, int(self.difficulty)):
             if self.is_prime(number):
                 primes.append(number)
-        
-        fitness = 0
-        return (fitness,) 
-    
 
-    
-    
-    
+        with open(f'ready_gen{self.generation}_ind{self.ind_idx}.txt', 'w') as outfile:
+            pass
+
+        fitness = 0
+        return (fitness,)
+
+
+
+
+
 
 
 
