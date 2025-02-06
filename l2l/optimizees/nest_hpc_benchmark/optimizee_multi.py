@@ -91,6 +91,7 @@ class MultiOptimizee(Optimizee):
             fitness = -abs(average_rate - desired_rate) # TODO: is this a sensible way to calculate fitness?
             print(f'fitness {fitness} for ind {i}')
         res.append(fitness)
+        print(f'fitnesses {res}')
         return res
 
 
