@@ -11,6 +11,7 @@ def main():
     name = 'L2L-FUN-GD'
     experiment = Experiment("../results")
     traj, all_jube_params = experiment.prepare_experiment(name=name,
+                                                          multiprocessing=False,
                                                           trajectory_name=name)
 
     # Optimizee
