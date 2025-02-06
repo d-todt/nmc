@@ -2,6 +2,7 @@ from l2l.utils.trajectory import Trajectory
 #from l2l.utils.JUBE_runner import JUBERunner
 import logging
 
+
 logger = logging.getLogger("utils.environment")
 
 
@@ -43,19 +44,14 @@ class Environment:
         """
         result = {}
         logger.info("Environment start iteration")
-        print("Environment start iteration")
-        with open('run.txt', 'w') as outfile:
-            outfile.write("test")
         for it in range(self.trajectory.individual.generation, self.trajectory.par['n_iteration']+self.trajectory.individual.generation):
             logger.info(f"Environment run generation {it+1}/{self.trajectory.par['n_iteration']}")
-            print(f"Environment run generation {it+1}/{self.trajectory.par['n_iteration']}")
             if self.multiprocessing:
                 raise NotImplementedError('No JUBE!')
 
             else:
                 # Sequential calls to the runfunc in the optimizee
                 logger.info('runner sequential')
-                print('runner sequential')
                 result[it] = []
                 # Call runfunc on each individual from the trajectory
                 try:
@@ -64,7 +60,6 @@ class Environment:
                         result[it].append((ind.ind_idx, runfunc(self.trajectory)))
                         self.run_id = self.run_id + 1
                         logger.info(f'run id {ind}')
-                        print('run id {ind}')
                 except:
                     if self.logging:
                         logger.exception("Error during serial execution of individuals")

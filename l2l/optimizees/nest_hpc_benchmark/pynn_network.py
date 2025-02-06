@@ -49,6 +49,7 @@ class Pynn_Net():
         #spikes1=self.sample_ex.get_data(["spikes"]).segments[0].spiketrains
         #spikes2=self.sample_in.get_data(["spikes"]).segments[0].spiketrains
         average_rate = self.sample_ex.mean_spike_count()
+        sim.end
         sim.reset()
 
         return average_rate
